@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE JposEntries PUBLIC "-//JavaPOS//DTD//EN" "jpos/res/jcl.dtd">
+<JposEntries>
+    <!--Saved by JavaPOS jpos.config/loader (JCL) version 2.2.0 on 08.10.15 12:45-->
+    <JposEntry logicalName="FiscalPrinter">
+        <creation factoryClass="ru.atol.drivers10.jpos.fptr.AtolJposServiceInstanceFactory"
+                  serviceClass="ru.atol.drivers10.jpos.fptr.FiscalPrinterService"/>
+        <vendor name="ATOL" url="http://www.atol.ru"/>
+        <jpos category="FiscalPrinter" version="1.14"/>
+        <product name="Fiscal printer service" description="AtolFptr"
+                 url="http://www.javapos.com"/>
+
+        <!-- Канал обмена с ККТ (USB, COM, TCP, BLUETOOTH) -->
+        <prop name="channel" type="String" value="USB"/>
+        <!-- Путь к USB-устройству (например, 2-1.2. "auto" - для автоматического поиска первой попавшейся ККТ) -->
+        <prop name="usb" type="String" value="auto"/>
+        <!-- IP-адрес и порт ККТ (в случае канала TCP) -->
+        <prop name="ip" type="String" value="192.168.1.10:5555"/>
+        <!-- COM-порт (в случае канала COM)
+            Windows: COM1
+            Linux: /dev/ttyS3 -->
+        <prop name="com" type="String" value="COM16"/>
+        <!-- Скорость соединения с ККТ (в случае канала COM) -->
+        <prop name="baudrate" type="String" value="115200"/>
+        <!-- MAC-адрес ККТ (в случае канала BLUETOOTH) -->
+        <prop name="mac" type="String" value="FF:FF:FF:FF:FF:FF"/>
+
+        <!-- Канал для обмена с ОФД (none, auto) -->
+        <prop name="ofdChannel" type="String" value="auto"/>
+
+        <!-- Соответствие типов оплат в ККТ и JPOS -->
+        <prop name="paymentCash" type="String" value="00"/>
+        <prop name="paymentElectronically" type="String" value="10"/>
+        <prop name="paymentPrepaid" type="String" value="20"/>
+        <prop name="paymentCredit" type="String" value="30"/>
+        <prop name="paymentOther" type="String" value="40"/>
+        <prop name="payment6" type="String" value="50"/>
+        <prop name="payment7" type="String" value="60"/>
+        <prop name="payment8" type="String" value="70"/>
+        <prop name="payment9" type="String" value="80"/>
+        <prop name="payment10" type="String" value="90"/>
+
+        <!-- Наименования расширенных типов оплат -->
+        <prop name="payment6Name" type="String" value="ПЛАТ.КАРТОЙ"/>
+        <prop name="payment7Name" type="String" value="ТАРОЙ"/>
+        <prop name="payment8Name" type="String" value="КРЕДИТОМ"/>
+        <prop name="payment9Name" type="String" value="ТИП 9"/>
+        <prop name="payment10Name" type="String" value="ТИП 10"/>
+
+        <!-- Привязка расширенных типов оплат к фискальным -->
+        <prop name="payment6FiscalType" type="String" value="2"/>
+        <prop name="payment7FiscalType" type="String" value="2"/>
+        <prop name="payment8FiscalType" type="String" value="2"/>
+        <prop name="payment9FiscalType" type="String" value="2"/>
+        <prop name="payment10FiscalType" type="String" value="2"/>
+
+        <!-- Соответствие налоговых ставок в ККТ и JPOS -->
+        <prop name="vat0" type="String" value="3"/>
+        <prop name="vatNo" type="String" value="4"/>
+        <prop name="vat10" type="String" value="2"/>
+        <prop name="vat18" type="String" value="1"/>
+        <prop name="vat110" type="String" value="5"/>
+        <prop name="vat118" type="String" value="6"/>
+
+
+        <!-- Печатать или не печатать подвал в нефискальных документах -->
+        <prop name="printNonFiscalFooter" type="String" value="1"/>
+
+        <!-- Возвращать необнуляемый итог с учетом сменного -->
+        <prop name="grandTotalsWithShiftTotals" type="String" value="0"/>
+
+        <!-- Подстрока, по которой можно определить строку клише с картинкой
+         Формат строки клише для печати картинки: ${PREFIX}N,M${PREFIX}, где
+         - ${PREFIX} - значение настройки clichePicturePrefix,
+         - N - номер картинки (картинки грузятся из файла picturesFileName попорядку, нумеруются с 1)
+         - M - смещение при печати картинки, в пикселях
+         Например, #$1,15#$.
+        -->
+        <prop name="clichePicturePrefix" type="String" value="#$"/>
+
+        <!-- Путь к файлу с описанием картиной для загрузки в ККТ -->
+        <prop name="picturesFileName" type="String" value=""/>
+
+        <!-- Количество строк заголовка чека -->
+        <prop name="numHeaderLines" type="String" value="4"/>
+
+        <!-- Количество строк подвала чека -->
+        <prop name="numTrailerLines" type="String" value="0"/>
+
+        <!-- Проверять подытог чека -->
+        <prop name="checkSubtotal" type="String" value="true"/>
+
+        <!-- Шрифт нефискальных строк -->
+        <prop name="defaultFont" type="String" value="0"/>
+
+        <!-- Воспринимать параметр unitName методов регистрации позиции как реквизит 1197 -->
+        <prop name="unitNameAsAttribute" type="String" value=""/>
+
+        <!-- Номер чека, возвращаемый по запросу getData(FPTR_GD_RECEIPT_NUMBER)
+         0 - номер чека из ФН (сбрасывается каждую смену, по сути представляет собой кол-во чеков за смену),
+         1 - номер ФД чека из ФН (монотонно возрастает)
+        -->
+        <prop name="receiptNumberType" type="String" value="1"/>
+
+        <!-- Возвращать необнуляемый итог в МДЕ -->
+        <prop name="grandTotalsInCents" type="String" value="0"/>
+
+        <!-- Путь к csv-файлу с параметрами ККТ, которые будут записаны при подключении к ККТ.
+         Если пусто - параметры не записываются в ККТ
+        -->
+        <prop name="parametersFileName" type="String" value=""/>
+
+        <!-- При значении 1 драйвер будет открывать смену перед её закрытием в рамках метода printZReport() -->
+        <prop name="openShiftBeforeClose" type="String" value="0"/>
+
+        <!-- При значении 1 драйвер будет инвертировать возвращаемое состояние денежного ящика -->
+        <prop name="invertCashDrawerStatus" type="String" value="0"/>
+
+        <!-- Путь к пользовательским скриптам драйвера -->
+
+        <prop name="scriptsPath" type="String" value="C:\Users\i.purikov\Desktop\job\clients\x5\ТЗ\custom_script"/>
+        <!-- При значении 1 проверку КМ выполняет драйвер, используя прямой доступ к ФН-М; при значении 0 проверка КМ выполняется на стороне ККТ -->
+        <prop name="validateMarksWithFnmOnly" type="String" value="0"/>
+
+
+        <!-- Признак кеширования нефискальных строк и печати их после закрытия чека -->
+        <prop name="cacheRecMessages" type="String" value="0"/>
+
+        <!-- Путь к csv-файлу с таблицами для ККТ версий 3.X, которые будут записаны при подключении к ККТ.
+         Если значение пустое, в ККТ ничего не программируется.
+         Не рекомендуется к использованию, вместо него стоит использовать загрузку параметров через parametersFileName как более универсальную.
+        -->
+        <prop name="fieldsFileName" type="String" value=""/>
+
+        <!-- Путь к json-шаблону чека для ККТ версий 3.X, который будет записан при подключении к ККТ.
+         Если значение пустое, в ККТ ничего не программируется.
+        -->
+        <prop name="receiptTemplateFile" type="String" value=""/>
+
+        <!-- Путь к файлу, куда выполнять выгрузку настроек ККТ
+         Если значение пустое или папка не существует, выгрузка не выполняется
+         <prop name="exportDeviceParametersFile" type="String" value="C:\Users\i.purikov\Desktop\job\jpos\999.csv"/>
+        -->
+
+
+        <!-- Путь к файлу с фильтром выгружаемых настроек ККТ
+         Если значение пустое или файл не существует, выгрузка не выполняется
+         <prop name="exportDeviceParametersFilterFile" type="String" value="C:\Users\i.purikov\Desktop\job\jpos\887.csv"/>
+        -->
+
+
+        <!-- Значение параметра unitName методов регистрации позиции, по которому для неё выставляется флаг штучного товара.
+          Настройка unitNameAsAttribute должна иметь значение 0.
+        -->
+        <prop name="unitNameAsAttribute" type="String" value="0"/>
+
+        <prop name="pieceUnitName" type="String" value=""/>
+
+        <!-- Формат передачи параметров позиции
+         0 - price, quantity, sum = price * quantity + discount, отдельная команда скидки печатает нефискальную информацию о скидке.
+         1 - price, quantity, sum = price * quantity (скидка размазана по кол-ву), отдельная команда скидки печатает нефискальную информацию о скидке.
+         2 - price, quantity, sum = price * quantity (скидка не размазана по кол-ву), отдельная команда скидки применяет скидку к позиции.
+         3 - price, quantity, sum = price * quantity (скидка размазана по кол-ву), отдельная команда скидки не печатает ничего.
+         4 - price, quantity, sum = price * quantity (скидка размазана по кол-ву), отдельная команда скидки воспринимается как скидка на единицу и печатает нефискальную информацию о скидке.
+        -->
+        <prop name="itemFormat" type="String" value="1"/>
+    </JposEntry>
+</JposEntries>
+

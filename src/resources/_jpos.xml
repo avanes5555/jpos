@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="KOI8-R"?>
+<!DOCTYPE JposEntries PUBLIC "-//JavaPOS//DTD//EN" "jpos/res/jcl.dtd">
+<JposEntries>
+    <!--Saved by JavaPOS jpos.config/loader (JCL) version 2.2.0 on 08.10.15 12:45-->
+    <JposEntry logicalName="FiscalPrinter">
+        <creation factoryClass="ru.atol.drivers10.jpos.fptr.AtolJposServiceInstanceFactory"
+                  serviceClass="ru.atol.drivers10.jpos.fptr.FiscalPrinterService"/>
+        <vendor name="ATOL" url="http://www.atol.ru"/>
+        <jpos category="FiscalPrinter" version="1.14"/>
+        <product name="Fiscal printer service" description="AtolFptr"
+                 url="http://www.javapos.com"/>
+
+        <!-- лБОБМ ПВНЕОБ У ллф (USB, COM, TCP, BLUETOOTH) -->
+        <prop name="channel" type="String" value="USB"/>
+        <!-- рХФШ Л USB-ХУФТПКУФЧХ (ОБРТЙНЕТ, 2-1.2. "auto" - ДМС БЧФПНБФЙЮЕУЛПЗП РПЙУЛБ РЕТЧПК РПРБЧЫЕКУС ллф) -->
+        <prop name="usb" type="String" value="auto"/>
+        <!-- IP-БДТЕУ Й РПТФ ллф (Ч УМХЮБЕ ЛБОБМБ TCP) -->
+        <prop name="ip" type="String" value="192.168.1.10:5555"/>
+        <!-- COM-РПТФ (Ч УМХЮБЕ ЛБОБМБ COM)
+            Windows: COM1
+            Linux: /dev/ttyS3 -->
+        <prop name="com" type="String" value="COM5"/>
+        <!-- уЛПТПУФШ УПЕДЙОЕОЙС У ллф (Ч УМХЮБЕ ЛБОБМБ COM) -->
+        <prop name="baudrate" type="String" value="115200"/>
+        <!-- MAC-БДТЕУ ллф (Ч УМХЮБЕ ЛБОБМБ BLUETOOTH) -->
+        <prop name="mac" type="String" value="FF:FF:FF:FF:FF:FF"/>
+
+        <!-- лБОБМ ДМС ПВНЕОБ У пжд (none, auto) -->
+        <prop name="ofdChannel" type="String" value="auto"/>
+
+        <!-- уППФЧЕФУФЧЙЕ ФЙРПЧ ПРМБФ Ч ллф Й JPOS -->
+        <prop name="paymentCash" type="String" value="00"/>
+        <prop name="paymentElectronically" type="String" value="10"/>
+        <prop name="paymentPrepaid" type="String" value="20"/>
+        <prop name="paymentCredit" type="String" value="30"/>
+        <prop name="paymentOther" type="String" value="40"/>
+        <prop name="payment6" type="String" value="50"/>
+        <prop name="payment7" type="String" value="60"/>
+        <prop name="payment8" type="String" value="70"/>
+        <prop name="payment9" type="String" value="80"/>
+        <prop name="payment10" type="String" value="90"/>
+
+        <!-- оБЙНЕОПЧБОЙС ТБУЫЙТЕООЩИ ФЙРПЧ ПРМБФ -->
+        <prop name="payment6Name" type="String" value="рмбф.лбтфпк"/>
+        <prop name="payment7Name" type="String" value="фбтпк"/>
+        <prop name="payment8Name" type="String" value="лтедйфпн"/>
+        <prop name="payment9Name" type="String" value="фйр 9"/>
+        <prop name="payment10Name" type="String" value="фйр 10"/>
+
+        <!-- рТЙЧСЪЛБ ТБУЫЙТЕООЩИ ФЙРПЧ ПРМБФ Л ЖЙУЛБМШОЩН -->
+        <prop name="payment6FiscalType" type="String" value="2"/>
+        <prop name="payment7FiscalType" type="String" value="2"/>
+        <prop name="payment8FiscalType" type="String" value="2"/>
+        <prop name="payment9FiscalType" type="String" value="2"/>
+        <prop name="payment10FiscalType" type="String" value="2"/>
+
+        <!-- уППФЧЕФУФЧЙЕ ОБМПЗПЧЩИ УФБЧПЛ Ч ллф Й JPOS -->
+        <prop name="vat0" type="String" value="3"/>
+        <prop name="vatNo" type="String" value="4"/>
+        <prop name="vat10" type="String" value="2"/>
+        <prop name="vat18" type="String" value="1"/>
+        <prop name="vat110" type="String" value="5"/>
+        <prop name="vat118" type="String" value="6"/>
+
+
+        <!-- рЕЮБФБФШ ЙМЙ ОЕ РЕЮБФБФШ РПДЧБМ Ч ОЕЖЙУЛБМШОЩИ ДПЛХНЕОФБИ -->
+        <prop name="printNonFiscalFooter" type="String" value="1"/>
+
+        <!-- чПЪЧТБЭБФШ ОЕПВОХМСЕНЩК ЙФПЗ У ХЮЕФПН УНЕООПЗП -->
+        <prop name="grandTotalsWithShiftTotals" type="String" value="0"/>
+
+        <!-- рПДУФТПЛБ, РП ЛПФПТПК НПЦОП ПРТЕДЕМЙФШ УФТПЛХ ЛМЙЫЕ У ЛБТФЙОЛПК
+         жПТНБФ УФТПЛЙ ЛМЙЫЕ ДМС РЕЮБФЙ ЛБТФЙОЛЙ: ${PREFIX}N,M${PREFIX}, ЗДЕ
+         - ${PREFIX} - ЪОБЮЕОЙЕ ОБУФТПКЛЙ clichePicturePrefix,
+         - N - ОПНЕТ ЛБТФЙОЛЙ (ЛБТФЙОЛЙ ЗТХЪСФУС ЙЪ ЖБКМБ picturesFileName РПРПТСДЛХ, ОХНЕТХАФУС У 1)
+         - M - УНЕЭЕОЙЕ РТЙ РЕЮБФЙ ЛБТФЙОЛЙ, Ч РЙЛУЕМСИ
+         оБРТЙНЕТ, #$1,15#$.
+        -->
+        <prop name="clichePicturePrefix" type="String" value="#$"/>
+
+        <!-- рХФШ Л ЖБКМХ У ПРЙУБОЙЕН ЛБТФЙОПК ДМС ЪБЗТХЪЛЙ Ч ллф -->
+        <prop name="picturesFileName" type="String" value=""/>
+
+        <!-- лПМЙЮЕУФЧП УФТПЛ ЪБЗПМПЧЛБ ЮЕЛБ -->
+        <prop name="numHeaderLines" type="String" value="4"/>
+
+        <!-- лПМЙЮЕУФЧП УФТПЛ РПДЧБМБ ЮЕЛБ -->
+        <prop name="numTrailerLines" type="String" value="4"/>
+
+        <!-- рТПЧЕТСФШ РПДЩФПЗ ЮЕЛБ -->
+        <prop name="checkSubtotal" type="String" value="1"/>
+		
+		<!-- лПМ-ЧП ЪОБЛПЧ РПУМЕ ЪБРСФПК Ч УХННБИ (РЕТЕПРТЕДЕМСЕФ РПЧЕДЕОЙЕ getAmountDecimalPlaces()) -->
+		<prop name="amountDecimalPlaces" type="String" value="2"/>
+		
+		<!-- тБЪТЕЫЙФШ ЧЩЪПЧ УПВЩФЙС StatusUpdateEvent РТЙ ЙЪНЕОЕОЙЙ УПУФПСОЙС ллн -->
+        <prop name="enableBackgroundStatusUpdater" type="String" value="1"/>
+
+        <!-- ыТЙЖФ ОЕЖЙУЛБМШОЩИ УФТПЛ -->
+        <prop name="defaultFont" type="String" value="0"/>
+
+        <!-- чПУРТЙОЙНБФШ РБТБНЕФТ unitName НЕФПДПЧ ТЕЗЙУФТБГЙЙ РПЪЙГЙЙ ЛБЛ ТЕЛЧЙЪЙФ 1197  (ДМС жжд < 1.2) ЙМЙ ЛБЛ ТЕЛЧЙЪЙФ 2108 -->
+        <prop name="unitNameAsAttribute" type="String" value="0"/>
+
+        <!-- оПНЕТ ЮЕЛБ, ЧПЪЧТБЭБЕНЩК РП ЪБРТПУХ getData(FPTR_GD_RECEIPT_NUMBER)
+         0 - ОПНЕТ ЮЕЛБ ЙЪ жо (УВТБУЩЧБЕФУС ЛБЦДХА УНЕОХ, РП УХФЙ РТЕДУФБЧМСЕФ УПВПК ЛПМ-ЧП ЮЕЛПЧ ЪБ УНЕОХ),
+         1 - ОПНЕТ жд ЮЕЛБ ЙЪ жо (НПОПФПООП ЧПЪТБУФБЕФ)
+        -->
+        <prop name="receiptNumberType" type="String" value="1"/>
+
+        <!-- чПЪЧТБЭБФШ ОЕПВОХМСЕНЩК ЙФПЗ Ч нде -->
+        <prop name="grandTotalsInCents" type="String" value="0"/>
+
+        <!-- рХФШ Л csv-ЖБКМХ У РБТБНЕФТБНЙ ллф, ЛПФПТЩЕ ВХДХФ ЪБРЙУБОЩ РТЙ РПДЛМАЮЕОЙЙ Л ллф.
+         еУМЙ РХУФП - РБТБНЕФТЩ ОЕ ЪБРЙУЩЧБАФУС Ч ллф
+        -->
+        <prop name="parametersFileName" type="String" value=""/>
+
+        <!-- рТЙ ЪОБЮЕОЙЙ 1 ДТБКЧЕТ ВХДЕФ ПФЛТЩЧБФШ УНЕОХ РЕТЕД ЕЈ ЪБЛТЩФЙЕН Ч ТБНЛБИ НЕФПДБ printZReport() -->
+        <prop name="openShiftBeforeClose" type="String" value="0"/>
+
+        <!-- рТЙ ЪОБЮЕОЙЙ 1 ДТБКЧЕТ ВХДЕФ ЙОЧЕТФЙТПЧБФШ ЧПЪЧТБЭБЕНПЕ УПУФПСОЙЕ ДЕОЕЦОПЗП СЭЙЛБ -->
+        <prop name="invertCashDrawerStatus" type="String" value="0"/>
+
+        <!-- рХФШ Л РПМШЪПЧБФЕМШУЛЙН УЛТЙРФБН ДТБКЧЕТБ -->
+        <prop name="scriptsPath" type="String" value=""/>
+
+        <!-- рТЙ ЪОБЮЕОЙЙ 1 РТПЧЕТЛХ лн ЧЩРПМОСЕФ ДТБКЧЕТ, ЙУРПМШЪХС РТСНПК ДПУФХР Л жо-н; РТЙ ЪОБЮЕОЙЙ 0 РТПЧЕТЛБ лн ЧЩРПМОСЕФУС ОБ УФПТПОЕ ллф -->
+        <prop name="validateMarksWithFnmOnly" type="String" value="0"/>
+
+        <!-- рТЙЪОБЛ ЛЕЫЙТПЧБОЙС ОЕЖЙУЛБМШОЩИ УФТПЛ Й РЕЮБФЙ ЙИ РПУМЕ ЪБЛТЩФЙС ЮЕЛБ -->
+        <prop name="cacheRecMessages" type="String" value="0"/>
+
+        <!-- рХФШ Л csv-ЖБКМХ У ФБВМЙГБНЙ ДМС ллф ЧЕТУЙК 3.X, ЛПФПТЩЕ ВХДХФ ЪБРЙУБОЩ РТЙ РПДЛМАЮЕОЙЙ Л ллф.
+         еУМЙ ЪОБЮЕОЙЕ РХУФПЕ, Ч ллф ОЙЮЕЗП ОЕ РТПЗТБННЙТХЕФУС.
+         оЕ ТЕЛПНЕОДХЕФУС Л ЙУРПМШЪПЧБОЙА, ЧНЕУФП ОЕЗП УФПЙФ ЙУРПМШЪПЧБФШ ЪБЗТХЪЛХ РБТБНЕФТПЧ ЮЕТЕЪ parametersFileName ЛБЛ ВПМЕЕ ХОЙЧЕТУБМШОХА.
+        -->
+        <prop name="fieldsFileName" type="String" value=""/>
+
+        <!-- рХФШ Л json-ЫБВМПОХ ЮЕЛБ ДМС ллф ЧЕТУЙК 3.X, ЛПФПТЩК ВХДЕФ ЪБРЙУБО РТЙ РПДЛМАЮЕОЙЙ Л ллф.
+         еУМЙ ЪОБЮЕОЙЕ РХУФПЕ, Ч ллф ОЙЮЕЗП ОЕ РТПЗТБННЙТХЕФУС.
+        -->
+        <prop name="receiptTemplateFile" type="String" value=""/>
+
+        <!-- рХФШ Л ЖБКМХ, ЛХДБ ЧЩРПМОСФШ ЧЩЗТХЪЛХ ОБУФТПЕЛ ллф
+         еУМЙ ЪОБЮЕОЙЕ РХУФПЕ ЙМЙ РБРЛБ ОЕ УХЭЕУФЧХЕФ, ЧЩЗТХЪЛБ ОЕ ЧЩРПМОСЕФУС
+        -->
+        <prop name="exportDeviceParametersFile" type="String" value=""/>
+
+        <!-- рХФШ Л ЖБКМХ У ЖЙМШФТПН ЧЩЗТХЦБЕНЩИ ОБУФТПЕЛ ллф
+         еУМЙ ЪОБЮЕОЙЕ РХУФПЕ ЙМЙ ЖБКМ ОЕ УХЭЕУФЧХЕФ, ЧЩЗТХЪЛБ ОЕ ЧЩРПМОСЕФУС
+        -->
+        <prop name="exportDeviceParametersFilterFile" type="String" value=""/>
+
+        <!-- ъОБЮЕОЙЕ РБТБНЕФТБ unitName НЕФПДПЧ ТЕЗЙУФТБГЙЙ РПЪЙГЙЙ, РП ЛПФПТПНХ ДМС ОЕЈ ЧЩУФБЧМСЕФУС ЖМБЗ ЫФХЮОПЗП ФПЧБТБ.
+          оБУФТПКЛБ unitNameAsAttribute ДПМЦОБ ЙНЕФШ ЪОБЮЕОЙЕ 0.
+        -->
+        <prop name="pieceUnitName" type="String" value=""/>
+
+        <!-- жПТНБФ РЕТЕДБЮЙ РБТБНЕФТПЧ РПЪЙГЙЙ
+         0 - price, quantity, sum = price * quantity + discount, ПФДЕМШОБС ЛПНБОДБ УЛЙДЛЙ РЕЮБФБЕФ ОЕЖЙУЛБМШОХА ЙОЖПТНБГЙА П УЛЙДЛЕ.
+         1 - price, quantity, sum = price * quantity (УЛЙДЛБ ТБЪНБЪБОБ РП ЛПМ-ЧХ), ПФДЕМШОБС ЛПНБОДБ УЛЙДЛЙ РЕЮБФБЕФ ОЕЖЙУЛБМШОХА ЙОЖПТНБГЙА П УЛЙДЛЕ.
+         2 - price, quantity, sum = price * quantity (УЛЙДЛБ ОЕ ТБЪНБЪБОБ РП ЛПМ-ЧХ), ПФДЕМШОБС ЛПНБОДБ УЛЙДЛЙ РТЙНЕОСЕФ УЛЙДЛХ Л РПЪЙГЙЙ.
+         3 - price, quantity, sum = price * quantity (УЛЙДЛБ ТБЪНБЪБОБ РП ЛПМ-ЧХ), ПФДЕМШОБС ЛПНБОДБ УЛЙДЛЙ ОЕ РЕЮБФБЕФ ОЙЮЕЗП.
+         4 - price, quantity, sum = price * quantity (УЛЙДЛБ ТБЪНБЪБОБ РП ЛПМ-ЧХ), ПФДЕМШОБС ЛПНБОДБ УЛЙДЛЙ ЧПУРТЙОЙНБЕФУС ЛБЛ УЛЙДЛБ ОБ ЕДЙОЙГХ Й РЕЮБФБЕФ ОЕЖЙУЛБМШОХА ЙОЖПТНБГЙА П УЛЙДЛЕ.
+        -->
+        <prop name="itemFormat" type="String" value="0"/>
+    </JposEntry>
+    <JposEntry logicalName="CashDrawerStub">
+        <creation factoryClass="FRCashDrawerStubFactory"
+                  serviceClass="FRCashDrawerStub"/>
+        <vendor name="Expertek" url="http://www.expertek.ru"/>
+        <jpos category="CashDrawer" version="1.2"/>
+        <product name="Cash Drawer service" description="FRCashDRawer"
+                 url="http://www.javapos.com"/>
+        <prop name="fiscalPrinterDevice" type="String" value="FiscalPrinter"/>
+   </JposEntry>
+</JposEntries>
