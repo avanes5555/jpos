@@ -19,7 +19,7 @@
         <!-- COM-порт (в случае канала COM)
             Windows: COM1
             Linux: /dev/ttyS3 -->
-        <prop name="com" type="String" value="COM16"/>
+        <prop name="com" type="String" value="COM6"/>
         <!-- Скорость соединения с ККТ (в случае канала COM) -->
         <prop name="baudrate" type="String" value="115200"/>
         <!-- MAC-адрес ККТ (в случае канала BLUETOOTH) -->
@@ -116,9 +116,10 @@
         <!-- При значении 1 драйвер будет инвертировать возвращаемое состояние денежного ящика -->
         <prop name="invertCashDrawerStatus" type="String" value="0"/>
 
-        <!-- Путь к пользовательским скриптам драйвера -->
-
+        <!-- Путь к пользовательским скриптам драйвера
+        -->
         <prop name="scriptsPath" type="String" value="C:\Users\i.purikov\Desktop\job\clients\x5\ТЗ\custom_script"/>
+
         <!-- При значении 1 проверку КМ выполняет драйвер, используя прямой доступ к ФН-М; при значении 0 проверка КМ выполняется на стороне ККТ -->
         <prop name="validateMarksWithFnmOnly" type="String" value="0"/>
 
