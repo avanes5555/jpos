@@ -11,11 +11,11 @@
                  url="http://www.javapos.com"/>
 
         <!-- Канал обмена с ККТ (USB, COM, TCP, BLUETOOTH) -->
-        <prop name="channel" type="String" value="USB"/>
+        <prop name="channel" type="String" value="TCP"/>
         <!-- Путь к USB-устройству (например, 2-1.2. "auto" - для автоматического поиска первой попавшейся ККТ) -->
         <prop name="usb" type="String" value="auto"/>
         <!-- IP-адрес и порт ККТ (в случае канала TCP) -->
-        <prop name="ip" type="String" value="192.168.1.10:5555"/>
+        <prop name="ip" type="String" value="10.77.171.18:5555"/>
         <!-- COM-порт (в случае канала COM)
             Windows: COM1
             Linux: /dev/ttyS3 -->

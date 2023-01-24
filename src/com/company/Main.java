@@ -109,7 +109,7 @@ public class Main {
 
 
 
-                      if(input[0].equals("test123"))
+                      if(input[0].equals("adb"))
 
                     {
 
