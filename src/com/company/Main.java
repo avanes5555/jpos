@@ -118,7 +118,7 @@ public class Main {
                         fptr.directIO(1063, null, null);
                         fptr.setFiscalReceiptType(FiscalPrinterConst.FPTR_RT_SALES);
                         //fptr.setFiscalReceiptType(102);
-                        fptr.beginFiscalReceipt(tru10e);
+                        fptr.beginFiscalReceipt(true);
 
                         fptr.setPOSID("111", "123");
 
