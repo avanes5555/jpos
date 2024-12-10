@@ -11,7 +11,7 @@
                  url="http://www.javapos.com"/>
 
         <!-- Канал обмена с ККТ (USB, COM, TCP, BLUETOOTH) -->
-        <prop name="channel" type="String" value="TCP"/>
+        <prop name="channel" type="String" value="USB"/>
         <!-- Путь к USB-устройству (например, 2-1.2. "auto" - для автоматического поиска первой попавшейся ККТ) -->
         <prop name="usb" type="String" value="auto"/>
         <!-- IP-адрес и порт ККТ (в случае канала TCP) -->
@@ -117,10 +117,14 @@
         <prop name="invertCashDrawerStatus" type="String" value="0"/>
 
         <!-- Путь к пользовательским скриптам драйвера
-
         <prop name="scriptsPath" type="String" value="C:\Users\i.purikov\Desktop\job\clients\x5\ТЗ\custom_script"/>
+         -->
 
-        -->
+
+
+
+
+
 
         <!-- При значении 1 проверку КМ выполняет драйвер, используя прямой доступ к ФН-М; при значении 0 проверка КМ выполняется на стороне ККТ -->
         <prop name="validateMarksWithFnmOnly" type="String" value="0"/>
@@ -154,10 +158,11 @@
 
         <!-- Значение параметра unitName методов регистрации позиции, по которому для неё выставляется флаг штучного товара.
           Настройка unitNameAsAttribute должна иметь значение 0.
+           <prop name="pieceUnitName" type="String" value=""/>
         -->
         <prop name="unitNameAsAttribute" type="String" value="0"/>
 
-        <prop name="pieceUnitName" type="String" value=""/>
+
 
         <!-- Формат передачи параметров позиции
          0 - price, quantity, sum = price * quantity + discount, отдельная команда скидки печатает нефискальную информацию о скидке.
